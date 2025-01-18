@@ -89,12 +89,12 @@ contract StakingPool {
         staker.amountStaked -= _amount;
         pool.totalStaked -= _amount;
 
-        payable(msg.sender).transfer(_amount);  // Transfer the staked ETH to the user
+        payable(msg.sender).transfer(_amount);
 
         uint256 totalReward = pendingReward + staker.rewardDebt;
 
         if (totalReward > 0) {
-            payable(msg.sender).transfer(totalReward);  // Transfer reward to the user
+            payable(msg.sender).transfer(totalReward);
             staker.rewardDebt = 0;
         }
 
