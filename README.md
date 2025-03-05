@@ -1,2 +1,2 @@
-Stealth Trails - A decentralized bank.
+Stealth Trails - A decentralized bank based on Ethereum.
 More on it, later....

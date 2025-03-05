@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT 
 pragma solidity ^0.8.28;
 
 import "hardhat/console.sol";
@@ -144,6 +144,9 @@ contract StakingPool {
     }
 
     function getStakedBalance(address _user, uint256 poolId) external view returns (uint256) {
+        if (stakers[_user][poolId].amountStaked == 0) {
+            return 0;
+        }
         return stakers[_user][poolId].amountStaked;
     }
 
