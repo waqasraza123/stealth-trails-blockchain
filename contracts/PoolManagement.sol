@@ -2,14 +2,11 @@
 pragma solidity ^0.8.28;
 
 import "./StakingPoolStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-abstract contract PoolManagement is StakingPoolStorage {
+abstract contract PoolManagement is StakingPoolStorage, Ownable, ReentrancyGuard {
     event PoolCreated(uint256 poolId, uint256 rewardRate, uint256 externalPoolId);
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not the contract owner");
-        _;
-    }
 
     function createPool(uint256 _rewardRate, uint256 externalPoolId) 
         external 

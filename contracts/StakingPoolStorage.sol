@@ -18,5 +18,4 @@ abstract contract StakingPoolStorage {
     mapping(address => mapping(uint256 => Staker)) public stakers;
 
     uint256 public poolCount;
-    address public owner;
 }
